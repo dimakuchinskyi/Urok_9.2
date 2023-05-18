@@ -109,4 +109,14 @@ my_iterator = ListIterator(my_list)
 for item in my_iterator:
     print(item)
 '''
-
+#4
+''''
+def multiply_by(n):
+    def closure(x):
+        try:
+            result = x * n
+            return result
+        except TypeError:
+            print("Помилка: переданий аргумент не є числом.")
+    return closure
+'''
