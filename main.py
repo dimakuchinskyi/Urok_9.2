@@ -1,3 +1,4 @@
+
 #Ітератор
 lst = [1,2,3,4,5,6,6]
 print(iter(lst))
@@ -14,4 +15,11 @@ class MyIterator:
         self.index += 1
         return value
 for num in MyIterator(lst):
+    print(num)
+
+def my_generator(data):
+    for item in data:
+        yield item
+
+for num in my_generator(lst):
     print(num)
