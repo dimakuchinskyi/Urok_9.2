@@ -70,3 +70,26 @@ except ValueError as e:
 except StopIteration as e:
     print("Помилка:", e)
 '''
+#2
+'''
+class SquareGenerator:
+    def __init__(self, n):
+        self.n = n
+        self.current = 1
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.current > self.n:
+            raise StopIteration
+        try:
+            square = self.current ** 2
+            self.current += 1
+            return square
+        except TypeError as e:
+            print("TypeError:", e)
+generator = SquareGenerator(5)
+for square in generator:
+    print(square)
+'''
