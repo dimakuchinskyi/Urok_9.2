@@ -49,10 +49,8 @@ class OddIterator:
             raise ValueError("N має бути додатнім числом")
         self.n = n
         self.current = 1
-
     def __iter__(self):
         return self
-
     def __next__(self):
         if self.current > self.n:
             raise StopIteration("Досягнуто кінець ітерації")
@@ -76,10 +74,8 @@ class SquareGenerator:
     def __init__(self, n):
         self.n = n
         self.current = 1
-
     def __iter__(self):
         return self
-
     def __next__(self):
         if self.current > self.n:
             raise StopIteration
@@ -93,3 +89,24 @@ generator = SquareGenerator(5)
 for square in generator:
     print(square)
 '''
+#3
+'''
+class ListIterator:
+    def __init__(self, lst):
+        self.lst = lst
+        self.index = 0
+    def __iter__(self):
+        return self
+    def __next__(self):
+        try:
+            item = self.lst[self.index]
+            self.index += 1
+            return item
+        except IndexError:
+            raise StopIteration
+my_list = [1, 2, 3, 4, 5]
+my_iterator = ListIterator(my_list)
+for item in my_iterator:
+    print(item)
+'''
+
