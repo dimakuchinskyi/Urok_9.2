@@ -42,23 +42,31 @@ print(div(3, 1))
 '''
 #Лабороторна робота
 #1
-class PrimeGenerator:
-    def __init__(self):
-        self.last_prime = 1
+'''
+class OddIterator:
+    def __init__(self, n):
+        if n <= 0:
+            raise ValueError("N має бути додатнім числом")
+        self.n = n
+        self.current = 1
 
-    def is_prime(self, num):
-        if num < 2:
-            return False
-        for i in range(2, int(num ** 0.5) + 1):
-            if num % i == 0:
-                return False
-        return True
+    def __iter__(self):
+        return self
 
-    def generate(self):
-        while True:
-            self.last_prime += 1
-            try:
-                if self.is_prime(self.last_prime):
-                    yield self.last_prime
-            except Exception as e:
-                print(f"Виникла помилка: {str(e)}")
+    def __next__(self):
+        if self.current > self.n:
+            raise StopIteration("Досягнуто кінець ітерації")
+        else:
+            odd_number = self.current
+            self.current += 2
+            return odd_number
+try:
+    n = int(input("Введіть значення N: "))
+    iterator = OddIterator(n)
+    for num in iterator:
+        print(num)
+except ValueError as e:
+    print("Помилка:", e)
+except StopIteration as e:
+    print("Помилка:", e)
+'''
